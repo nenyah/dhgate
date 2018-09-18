@@ -2,7 +2,10 @@
 # Created on 2018年3月9日
 # @author: Administrator
 import sys
-from dhgate import url_manager, html_downloader, html_outputer, html_parser
+import url_manager
+import html_downloader
+import html_outputer
+import html_parser
 
 
 class SpiderMain(object):
@@ -25,6 +28,7 @@ class SpiderMain(object):
                 count += 1
             except:
                 print("craw failed")
+        self.outputer.output_html()
         self.outputer.output_csv()
 
 

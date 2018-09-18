@@ -18,17 +18,14 @@ class HtmlOutputer(object):
             f.write("<html>")
             f.write("<body>")
             f.write("<table>")
+            f.write("<tr>")
+            for key in self.datas[0].keys():
+                f.write(f"<td>{key}</td>")
+            f.write("</tr>")
             for data in self.datas:
                 f.write("<tr>")
-                f.write(f"<td>{data['page_url']}</td>")
-                f.write(f"<td>{data['title']}</td>")
-                f.write(f"<td>{data['price']}</td>")
-                f.write(f"<td>{data['min_order']}</td>")
-                f.write(f"<td>{data['order']}</td>")
-                f.write(f"<td>{data['feedback']}</td>")
-                f.write(f"<td>{data['seller']}</td>")
-                f.write(f"<td>{data['store_url']}</td>")
-                f.write(f"<td>{data['store_feedback']}</td>")
+                for key, value in data.items():
+                    f.write(f"<td>{value}</td>")
                 f.write("</tr>")
             f.write("</table>")
             f.write("</body>")
