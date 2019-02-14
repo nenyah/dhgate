@@ -8,7 +8,6 @@ from numpy import mean
 
 
 class HtmlParser(object):
-
     def _get_new_data(self, page_url, soup):
         items = soup.find_all("div", "listitem")
         datas = []
@@ -31,7 +30,7 @@ class HtmlParser(object):
             data = {
                 'page_url': page_url,
                 'title': title,
-                'price': price,
+                'price': round(price, 2),
                 'min_order': min_order,
                 'order': order,
                 'feedback': feedback,

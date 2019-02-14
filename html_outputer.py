@@ -13,7 +13,7 @@ class HtmlOutputer(object):
             return
         self.datas.extend(data)
 
-    def output_html(self):
+    def to_html(self):
         with open('output.html', 'w') as f:
             f.write("<html>")
             f.write("<body>")
@@ -31,7 +31,7 @@ class HtmlOutputer(object):
             f.write("</body>")
             f.write("</html>")
 
-    def output_csv(self, path="output.csv"):
+    def to_csv(self, path="output.csv"):
         with open(path, 'w', newline="") as f:
             writer = csv.DictWriter(f, self.datas[0].keys())
             writer.writeheader()

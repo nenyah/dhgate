@@ -28,11 +28,5 @@ class SpiderMain(object):
                 count += 1
             except:
                 print("craw failed")
-        self.outputer.output_html()
-        self.outputer.output_csv()
 
-
-if __name__ == '__main__':
-    key_word, page_num = sys.argv[1:3]
-    obj_spider = SpiderMain()
-    obj_spider.craw(key_word, page_num)
+        return self.outputer.datas
