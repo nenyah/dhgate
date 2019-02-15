@@ -33,7 +33,11 @@ class HtmlOutputer(object):
 
     def to_csv(self, path="output.csv"):
         with open(path, 'w', newline="") as f:
-            writer = csv.DictWriter(f, self.datas[0].keys())
+            try:
+                writer = csv.DictWriter(f, self.datas[0].keys())
+            except IndexError:
+                print(self.datas[0].keys())
+
             writer.writeheader()
             for data in self.datas:
                 writer.writerow(data)

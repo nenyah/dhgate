@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Created on 2018年3月9日
 # @author: Administrator
-import sys
+
 import url_manager
 import html_downloader
 import html_outputer

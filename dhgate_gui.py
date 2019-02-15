@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk  # 导入内部包
+from tkinter import filedialog
 from spider_main import SpiderMain
-from html_outputer import HtmlOutputer
 
 
 class MainWindows(tk.Tk):
@@ -10,6 +10,7 @@ class MainWindows(tk.Tk):
         self.title("Dhgate数据采集")
         # self.config(bg='#303030')
         self.ini_ui()
+        self.spider = SpiderMain()
 
     def ini_ui(self):
         # 设置顶部区域
@@ -43,8 +44,8 @@ class MainWindows(tk.Tk):
         self.btn1 = tk.Button(self.top_frame, text='开始', command=self.scrapy)
         self.btn2 = tk.Button(
             self.top_frame, text='清空', command=self.clear_entry_value)
-        self.btn2 = tk.Button(
-            self.top_frame, text='导出Excel', command=self.clear_entry_value)
+        self.btn3 = tk.Button(
+            self.top_frame, text='导出Excel', command=self.save_data)
 
         self.lb1.grid(row=0, column=0, padx=10, pady=10)
         self.keyword.grid(row=0, column=1, padx=10, pady=10)
@@ -53,6 +54,7 @@ class MainWindows(tk.Tk):
         self.lb3.grid(row=3, column=0, columnspan=5)
         self.btn1.grid(row=0, column=5)
         self.btn2.grid(row=1, column=5)
+        self.btn3.grid(row=0, column=6)
 
         # 定义底部区域
         self.tree = ttk.Treeview(
@@ -81,7 +83,7 @@ class MainWindows(tk.Tk):
     def scrapy(self):
         keyword = self.keyword.get()
         page_num = self.num.get()
-        obj_spider = SpiderMain()
+        obj_spider = self.spider
         self.lb3.config(text=f"开始采集{keyword}")
         datas = obj_spider.craw(keyword, page_num)
         # print(f"开始采集{keyword}")
@@ -102,8 +104,10 @@ class MainWindows(tk.Tk):
                 text=f"line{i+1}",
                 values=(i + 1, *list(datas[i].values())))  # 插入数据
 
-    def save_data(self, path):
-        out = HtmlOutputer()
+    def save_data(self):
+        path = filedialog.asksaveasfilename()  # 返回文件名
+        print(path)
+        out = self.spider.outputer
         out.to_csv(path)
 
 
