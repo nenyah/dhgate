@@ -4,7 +4,7 @@
 import csv
 
 
-class HtmlOutputer(object):
+class HtmlOutputer:
     def __init__(self):
         self.datas = []
 

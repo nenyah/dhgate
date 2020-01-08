@@ -1,1 +1,0 @@
-@python dhgate_gui.py %* @pause

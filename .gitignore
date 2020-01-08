@@ -2,3 +2,6 @@
 output.csv
 output.html
 *.pyc
+dist/*
+build/*
+*.spec

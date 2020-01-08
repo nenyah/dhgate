@@ -8,7 +8,7 @@ import html_outputer
 import html_parser
 
 
-class SpiderMain(object):
+class SpiderMain:
     def __init__(self):
         self.urls = url_manager.UrlManager()
         self.downloader = html_downloader.HtmlDownloader()
@@ -26,7 +26,13 @@ class SpiderMain(object):
                 new_data = self.parser.parse(new_url, html_cont)
                 self.outputer.collect_data(new_data)
                 count += 1
-            except:
-                print("craw failed")
-
+            except Exception as e:
+                print("craw failed", e)
+        print(self.outputer.datas)
+        # self.outputer.to_csv()
         return self.outputer.datas
+
+
+if __name__ == "__main__":
+    spider = SpiderMain()
+    spider.craw("women dress", "2")

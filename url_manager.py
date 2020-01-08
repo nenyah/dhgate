@@ -4,15 +4,17 @@
 from urllib.parse import quote_plus
 
 
-class UrlManager(object):
+class UrlManager:
     def __init__(self):
         self.new_urls = set()
         self.old_urls = set()
-        self.site = 'http://www.dhgate.com/w/{0}/{1}.html'
+        self.site = 'https://www.dhgate.com/w/{0}/{1}.html'
 
     def build_url(self, key_word, page_num):
         key_word = quote_plus(key_word)
-        for url in [self.site.format(key_word, page) for page in range(page_num)]:
+        for url in [
+                self.site.format(key_word, page) for page in range(page_num)
+        ]:
             self.add_new_url(url)
 
     def add_new_url(self, url):
