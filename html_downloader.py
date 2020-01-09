@@ -1,3 +1,10 @@
+'''
+@Description: 下载器
+@Author: Steven
+@Date: 2018-09-18 10:15:44
+@LastEditors  : Steven
+@LastEditTime : 2020-01-09 10:34:35
+'''
 # -*- coding: utf-8 -*-
 # Created on 2018年3月9日
 # @author: Administrator
@@ -7,10 +14,13 @@ HEADERS = {
     'Connection': 'keep-alive',
     'Cache-Control': 'max-age=0',
     'Upgrade-Insecure-Requests': '1',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36',
+    'User-Agent':
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
+        (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36',
     'Sec-Fetch-Mode': 'navigate',
     'Sec-Fetch-User': '?1',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,\
+        image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
     'Sec-Fetch-Site': 'none',
     'Accept-Encoding': 'gzip, deflate, br',
     'Accept-Language': 'zh-CN,zh;q=0.9',
@@ -18,7 +28,7 @@ HEADERS = {
 
 
 class HtmlDownloader:
-    def download(self, url):
+    def download(self, url: str) -> str:
         if url is None:
             return None
 
