@@ -2,7 +2,7 @@ altgraph==0.16.1
 certifi==2022.12.7
 cffi==1.13.2
 chardet==3.0.4
-cryptography==2.8
+cryptography==39.0.1
 future==0.18.2
 idna==2.8
 lxml==4.4.2
