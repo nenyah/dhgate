@@ -13,7 +13,7 @@ pycrypto==2.6.1
 PyInstaller==3.6
 pyOpenSSL==19.1.0
 PySocks==1.7.1
-pywin32==225
+pywin32==301
 pywin32-ctypes==0.2.0
 requests==2.31.0
 six==1.14.0
