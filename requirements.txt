@@ -17,6 +17,6 @@ pywin32==301
 pywin32-ctypes==0.2.0
 requests==2.31.0
 six==1.14.0
-urllib3==1.26.5
+urllib3==1.26.17
 win-inet-pton==1.1.0
 wincertstore==0.2
